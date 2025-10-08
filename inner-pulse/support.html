@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inner Pulse Support</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 3em 1em 2em;
+      background: linear-gradient(135deg, #dbeafe, #f0f4f8);
+    }
+    header img {
+      height: 80px;
+      margin-bottom: 1em;
+      border-radius: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+    section {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    h2 {
+      color: #0056d6;
+      margin-bottom: 0.5em;
+    }
+    a.button {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background: #0056d6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    a.button:hover {
+      background: #0041a8;
+    }
+    .footer-links {
+      text-align: center;
+      margin: 3em 0;
+      font-size: 0.9rem;
+    }
+    .footer-links a {
+      color: #0056d6;
+      text-decoration: none;
+      margin: 0 1em;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Inner Pulse Logo">
+  <h1>Support</h1>
+  <p>We're here to help you get the most out of Inner Pulse.</p>
+</header>
+
+<section>
+  <h2>Need Help?</h2>
+  <p>If you have questions, encounter issues, or want to share feedback, our support team is ready to assist.</p>
+</section>
+
+<section>
+  <h2>Contact Us</h2>
+  <p>Reach out to our support via email:</p>
+  <span id="support-email"></span>
+</section>
+
+<!-- <section>
+  <h2>FAQ</h2>
+  <ul>
+    <li><strong>How do I track my daily mood?</strong> Open the app and tap the "Add Mood" button on the main screen.</li>
+    <li><strong>Can I export my mood data?</strong> Yes, go to Settings → Export Data.</li>
+    <li><strong>How do I reset my account?</strong> Go to Settings → Reset Account. Please note this will erase all your data.</li>
+    <li><strong>Where can I learn more about app features?</strong> Check the "Help & Tips" section inside the app.</li>
+  </ul>
+</section> -->
+
+<div class="footer-links">
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms & Conditions</a>
+</div>
+
+<script>
+  const encodedEmail = "aW5uZXJwdWxzZS5zdXBwb3J0QGljbG91ZC5jb20=";
+  const decodedEmail = atob(encodedEmail);
+  const emailEl = document.getElementById("support-email");
+  emailEl.innerHTML = `<a class="button" href="mailto:${decodedEmail}">${decodedEmail}</a>`;
+</script>
+
+</body>
+</html>
