@@ -1,1 +1,1 @@
-# DP.Company
+This is for git hub pages with trems and conditions for web site
