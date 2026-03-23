@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title>MeditifyApp Privacy Policy</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <strong>Privacy Policy</strong>
+    <p>This Privacy Policy applies to the MeditifyApp mobile app, offered as a Freemium service. The app is provided "AS IS".</p><br><strong>What information does MeditifyApp collect?</strong>
+    <p>When you download and use MeditifyApp, the app may collect basic usage information such as your device IP address, the screens you open, the date and time of use, the amount of time spent in the app, and the operating system running on your device.</p><br><strong>Location data</strong>
+    <p>MeditifyApp does not collect precise location information from your device.</p><br><strong>AI usage</strong>
+    <p>MeditifyApp does not use AI features to process your personal data or provide app functionality.</p><br><strong>Third-party access</strong>
+    <p>Some aggregated or anonymized information may be shared with third-party services to help improve app performance and stability. MeditifyApp uses third-party services that have their own privacy policies:</p>
+    <ul>
+        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+    </ul><br><strong>How information may be used</strong>
+    <p>The Service Provider may use the information you provide to send important notices, service-related updates, or occasional marketing messages. If the app asks you for personal information to improve your experience, that information will be stored and used as described in this policy.</p><br><strong>Opt-out</strong>
+    <p>You can stop all information collection by uninstalling the app through your device or app marketplace.</p><br><strong>Data retention</strong>
+    <p>Information you provide may be kept for as long as you use the app and for a reasonable period afterward. If you would like your data removed, contact the Service Provider at <span id="support-email-1"></span>.</p><br><strong>Children</strong>
+    <p>MeditifyApp is not intended to knowingly collect personal information from children under 13.</p><br>
+    <p>If you believe a child has provided personal information through the app, please contact the Service Provider at <span id="support-email-2"></span> so the issue can be addressed.</p><br><strong>Security</strong>
+    <p>The Service Provider uses physical, electronic, and procedural safeguards to help protect the information it stores and processes.</p><br><strong>Changes to this policy</strong>
+    <p>This Privacy Policy may be updated from time to time. If that happens, the updated version will be posted on this page. Continued use of the app after changes are posted means you accept the updated policy.</p><br>
+    <p>This privacy policy is effective as of 2026-03-23</p><br><strong>Your consent</strong>
+    <p>By using MeditifyApp, you agree to this Privacy Policy and its future updates.</p><br><strong>Contact</strong>
+    <p>If you have questions about privacy while using MeditifyApp, please contact the Service Provider at <span id="support-email-3"></span>.</p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const email = String.fromCharCode(
+                112, 114, 105, 109, 101, 95, 108, 97, 98, 95, 115, 116, 117, 100, 105, 111,
+                64, 105, 99, 108, 111, 117, 100, 46, 99, 111, 109
+            );
+
+            ["support-email-1", "support-email-2", "support-email-3"].forEach(function (id) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

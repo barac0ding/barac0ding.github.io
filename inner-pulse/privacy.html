@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width'>
-    <title>Privacy Policy</title>
+    <title>Inner Pulse Privacy Policy</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -15,52 +15,30 @@
 
 <body>
     <strong>Privacy Policy</strong>
-    <p>This privacy policy applies to the Inner Pulse app (hereby referred to as "Application") for mobile devices that
-        was created by Denys Prymachenko (hereby referred to as "Service Provider") as a Freemium service. This service
-        is intended for use "AS IS".</p><br><strong>What information does the Application obtain and how is it
-        used?</strong>
-    <p>The Application does not obtain any information when you download and use it. Registration is not required to use
-        the Application.</p><br><strong>Does the Application collect precise real time location information of the
-        device?</strong>
-    <p>This Application does not collect precise information about the location of your mobile device.</p><br><strong>Do
-        third parties see and/or have access to information obtained by the Application?</strong>
-    <p>Since the Application does not collect any information, no data is shared with third parties.</p><br><strong>What
-        are my opt-out rights?</strong>
-    <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard
-        uninstall processes as may be available as part of your mobile device or via the mobile application marketplace
-        or network.</p><br><strong>Children</strong>
-    <p>The Application is not used to knowingly solicit data from or market to children under the age of 13.</p><br>
-    <p>The Service Provider does not knowingly collect personally identifiable information from children. The Service
-        Provider encourages all children to never submit any personally identifiable information through the Application
-        and/or Services. The Service Provider encourage parents and legal guardians to monitor their children's Internet
-        usage and to help enforce this Policy by instructing their children never to provide personally identifiable
-        information through the Application and/or Services without their permission. If you have reason to believe that
-        a child has provided personally identifiable information to the Service Provider through the Application and/or
-        Services, please contact the Service Provider (<span id="support-email-1"></span>) so that they will be able to take
-        the necessary actions. You must also be at least 16 years of age to consent to the processing of your personally
-        identifiable information in your country (in some countries we may allow your parent or guardian to do so on
-        your behalf).</p><br><strong>Security</strong>
-    <p>The Service Provider is concerned about safeguarding the confidentiality of your information. However, since the
-        Application does not collect any information, there is no risk of your data being accessed by unauthorized
-        individuals.</p><br><strong>Changes</strong>
-    <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any
-        changes to their Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult
-        this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p><br>
-    <p>This privacy policy is effective as of 2025-10-08</p><br><strong>Your Consent</strong>
-    <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy
-        Policy now and as amended by the Service Provider.</p><br><strong>Contact Us</strong>
-<p>If you have any questions regarding privacy while using the Application, please contact the Service Provider via email at <span id="support-email-2"></span>.</p>
+    <p>This Privacy Policy applies to the Inner Pulse mobile app, created by Denys Prymachenko and offered as a Freemium service. The app is provided "AS IS".</p><br><strong>What information does Inner Pulse collect?</strong>
+    <p>Inner Pulse does not collect personal information when you download or use the app. You do not need to create an account or register to use it.</p><br><strong>Location data</strong>
+    <p>Inner Pulse does not collect precise location information from your device.</p><br><strong>Third-party access</strong>
+    <p>Because the app does not collect personal information, no user data is shared with third parties.</p><br><strong>Opt-out</strong>
+    <p>You can stop all information collection by uninstalling the app through your device or app marketplace.</p><br><strong>Children</strong>
+    <p>Inner Pulse is not intended to knowingly collect personal information from children under 13.</p><br>
+    <p>If you believe a child has provided personal information through the app or related services, please contact the Service Provider at <span id="support-email-1"></span> so the issue can be addressed. In some regions, you must also be at least 16 years old to consent to personal data processing, unless a parent or guardian may do so on your behalf.</p><br><strong>Security</strong>
+    <p>The Service Provider takes privacy seriously. Since Inner Pulse does not collect personal information, the risk of that information being exposed through the app is very limited.</p><br><strong>Changes to this policy</strong>
+    <p>This Privacy Policy may be updated from time to time. If that happens, the updated version will be posted on this page. Continued use of the app after changes are posted means you accept the updated policy.</p><br>
+    <p>This privacy policy is effective as of 2025-10-08</p><br><strong>Your consent</strong>
+    <p>By using Inner Pulse, you agree to this Privacy Policy as it may be updated from time to time.</p><br><strong>Contact</strong>
+<p>If you have questions about privacy while using Inner Pulse, please contact the Service Provider at <span id="support-email-2"></span>.</p>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const encodedEmail = "aW5uZXJwdWxzZS5zdXBwb3J0QGljbG91ZC5jb20=";
-
-    const decodedEmail = atob(encodedEmail);
+    const email = String.fromCharCode(
+        112, 114, 105, 109, 101, 95, 108, 97, 98, 95, 115, 116, 117, 100, 105, 111,
+        64, 105, 99, 108, 111, 117, 100, 46, 99, 111, 109
+    );
 
     ["support-email-1", "support-email-2"].forEach(id => {
         const el = document.getElementById(id);
         if(el) {
-            el.innerHTML = `<a href="mailto:${decodedEmail}">${decodedEmail}</a>`;
+            el.innerHTML = `<a href="mailto:${email}">${email}</a>`;
         }
     });
 });

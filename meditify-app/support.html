@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inner Pulse Support</title>
-  <meta name="description" content="Support and contact page for the Inner Pulse app.">
+  <title>MeditifyApp Support</title>
+  <meta name="description" content="Support and contact page for the MeditifyApp app.">
   <style>
     :root {
-      --bg: #1b0224;
-      --bg-soft: #2a0738;
-      --surface: rgba(20, 11, 29, 0.78);
-      --surface-strong: rgba(32, 15, 45, 0.92);
-      --text: #f8f3ff;
-      --muted: rgba(240, 228, 255, 0.76);
+      --bg: #100d18;
+      --bg-soft: #1b1328;
+      --surface: rgba(21, 17, 30, 0.74);
+      --text: #f5f2ff;
+      --muted: rgba(235, 239, 255, 0.78);
       --line: rgba(255, 255, 255, 0.08);
-      --accent-strong: #7f3cff;
-      --accent-blue: #2d9cff;
-      --shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
-      --radius-lg: 32px;
+      --accent-a: #8f73ff;
+      --accent-b: #cd73ff;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
       --radius-md: 22px;
     }
 
@@ -30,9 +28,9 @@
       font-family: "Avenir Next", "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(177, 97, 255, 0.2), transparent 26%),
-        radial-gradient(circle at bottom right, rgba(45, 156, 255, 0.14), transparent 24%),
-        linear-gradient(180deg, #19011f 0%, var(--bg) 36%, var(--bg-soft) 100%);
+        radial-gradient(circle at top left, rgba(153, 106, 255, 0.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(73, 196, 235, 0.12), transparent 24%),
+        linear-gradient(180deg, #0f0d17 0%, #171322 38%, #211332 100%);
     }
 
     a {
@@ -93,8 +91,8 @@
 
     .nav-links a.active,
     .nav-links a:hover {
-      background: rgba(177, 97, 255, 0.18);
-      border-color: rgba(177, 97, 255, 0.26);
+      background: rgba(177, 126, 255, 0.18);
+      border-color: rgba(177, 126, 255, 0.24);
     }
 
     .stack {
@@ -115,8 +113,8 @@
       display: inline-block;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(177, 97, 255, 0.16);
-      color: #ddb9ff;
+      background: rgba(186, 126, 255, 0.16);
+      color: #d9b9ff;
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -153,9 +151,9 @@
       border-radius: 999px;
       text-decoration: none;
       font-weight: 600;
-      background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent-blue) 100%);
+      background: linear-gradient(135deg, var(--accent-a) 0%, var(--accent-b) 100%);
       color: #fff;
-      box-shadow: 0 16px 34px rgba(127, 60, 255, 0.28);
+      box-shadow: 0 16px 34px rgba(159, 111, 255, 0.24);
     }
 
     .legal-list {
@@ -204,11 +202,11 @@
 <body>
   <div class="page-shell">
     <header class="topbar">
-      <a class="brand" href="index.html" aria-label="Inner Pulse home">
-        <img src="../resources/inner-pulse-logo.png" alt="Inner Pulse logo">
+      <a class="brand" href="index.html" aria-label="MeditifyApp home">
+        <img src="../resources/meditify-app-logo.png" alt="MeditifyApp logo">
         <span>
-          <strong>Inner Pulse</strong>
-          <span>A quieter way to check in with yourself</span>
+          <strong>MeditifyApp</strong>
+          <span>A simple companion for daily meditation</span>
         </span>
       </a>
       <nav class="nav-links" aria-label="Primary">
@@ -222,7 +220,7 @@
     <main class="stack">
       <section class="content-card">
         <span class="eyebrow">Support</span>
-        <h1 class="page-title">Need a hand with Inner Pulse?</h1>
+        <h1 class="page-title">Need a hand with MeditifyApp?</h1>
         <p class="page-lead">If something feels unclear, is not working as expected, or you want to share feedback, send a message and we will take a look.</p>
         <div class="button-row">
           <span id="support-email"></span>
@@ -239,7 +237,7 @@
     </main>
 
     <footer class="footer">
-      <span>Inner Pulse website</span>
+      <span>MeditifyApp website</span>
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="privacy.html">Privacy Policy</a>

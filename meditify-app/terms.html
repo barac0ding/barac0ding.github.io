@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title>MeditifyApp Terms &amp; Conditions</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <strong>Terms &amp; Conditions</strong><br>
+    <p>These Terms and Conditions apply to the MeditifyApp mobile app, offered as a Freemium service.</p><br>
+    <p>By downloading or using MeditifyApp, you agree to these terms. Please read them carefully before using the app. You may not copy, modify, translate, reverse engineer, extract source code from, or create derivative versions of the app. All trademarks, copyrights, database rights, and other intellectual property rights related to MeditifyApp remain the property of the Service Provider.</p><br>
+    <p>The Service Provider may update the app, change features, or introduce charges for certain services in the future. If charges are introduced, they will be clearly communicated.</p><br>
+    <p>MeditifyApp may store and process the information you provide in order to deliver the service. You are responsible for keeping your device secure and controlling access to the app. Jailbreaking or rooting your device may reduce security and can cause the app to stop working properly.</p><br>
+    <p>Some parts of MeditifyApp may require an internet connection. The Service Provider is not responsible if the app does not work fully because Wi-Fi is unavailable or your mobile data has run out.</p><br>
+    <p>If you use the app outside a Wi-Fi area, your mobile provider's terms still apply, including any data or roaming charges. If you are not the bill payer for the device, it is assumed that you have permission to use it.</p><br>
+    <p>You are also responsible for keeping your device charged and usable. The Service Provider is not liable if you cannot access the app because your device is unavailable.</p><br>
+    <p>While the Service Provider works to keep MeditifyApp accurate and up to date, some information may depend on third parties. The Service Provider is not liable for direct or indirect losses that result from relying entirely on the app.</p><br>
+    <p>MeditifyApp uses third-party services that may have their own terms and conditions:</p>
+    <ul>
+        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+    </ul>
+    <p>The app may be updated or discontinued at any time. If support for the app ends, the rights granted to you under these terms also end, and you must stop using the app and remove it from your device if needed.</p><br><strong>Changes to These Terms and Conditions</strong>
+    <p>These Terms may be updated from time to time. If that happens, the updated version will be posted on this page. Continued use of MeditifyApp means you accept those changes.</p><br>
+    <p>These terms and conditions are effective as of 2026-03-23</p><br><strong>Contact</strong>
+    <p>If you have questions about these Terms and Conditions, you can contact the Service Provider at <span id="support-email"></span></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const email = String.fromCharCode(
+                112, 114, 105, 109, 101, 95, 108, 97, 98, 95, 115, 116, 117, 100, 105, 111,
+                64, 105, 99, 108, 111, 117, 100, 46, 99, 111, 109
+            );
+
+            const el = document.getElementById("support-email");
+            if (el) {
+                el.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+            }
+        });
+    </script>
+</body>
+
+</html>

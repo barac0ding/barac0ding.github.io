@@ -4,66 +4,352 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PrimeLab Studio</title>
+  <meta name="description" content="PrimeLab Studio creates thoughtful iOS apps for meditation, emotional awareness, and calmer daily routines.">
   <style>
+    :root {
+      --bg: #edf5fb;
+      --surface: rgba(255, 255, 255, 0.8);
+      --surface-strong: #ffffff;
+      --text: #172b3f;
+      --muted: #5f7286;
+      --line: rgba(23, 43, 63, 0.1);
+      --blue: #1a88d8;
+      --blue-dark: #1267ab;
+      --green: #8fd4c6;
+      --shadow: 0 24px 70px rgba(25, 62, 104, 0.14);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --radius-sm: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.6;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(143, 212, 198, 0.42), transparent 24%),
+        radial-gradient(circle at top right, rgba(26, 136, 216, 0.18), transparent 26%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
     }
-    header {
-      text-align: center;
-      padding: 4em 1em 2em;
-      background: linear-gradient(135deg, #dbeafe, #f0f4f8);
+
+    img {
+      max-width: 100%;
+      display: block;
     }
-    header img {
-      height: 80px;
-      margin-bottom: 1em;
-      border-radius: 20px;
+
+    a {
+      color: inherit;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 68px;
     }
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.8;
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 28px;
+      align-items: center;
+      padding: 36px;
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
     }
-    section {
-      max-width: 800px;
-      margin: 2em auto;
-      padding: 0 1em;
-      text-align: center;
+
+    .hero-brand {
+      width: 170px;
+      margin-bottom: 18px;
+      filter: drop-shadow(0 18px 32px rgba(26, 136, 216, 0.16));
+      object-fit: contain;
     }
-    a.button {
+
+    .eyebrow {
       display: inline-block;
-      padding: 0.75em 1.5em;
-      background: #0056d6;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s;
-      margin-top: 1em;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(26, 136, 216, 0.1);
+      color: var(--blue-dark);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
-    a.button:hover {
-      background: #0041a8;
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p,
+    .app-card p,
+    .meta {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .button.primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 16px 30px rgba(26, 136, 216, 0.24);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line);
+    }
+
+    .studio-panel {
+      padding: 24px;
+      border-radius: calc(var(--radius-lg) - 8px);
+      background: linear-gradient(180deg, rgba(26, 136, 216, 0.12), rgba(143, 212, 198, 0.18));
+      border: 1px solid rgba(26, 136, 216, 0.14);
+    }
+
+    .studio-panel h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .studio-panel ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .studio-panel li {
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .section-title {
+      margin: 34px 0 16px;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .app-card {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 44px rgba(23, 43, 63, 0.08);
+    }
+
+    .card-top {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      padding: 24px 24px 12px;
+    }
+
+    .app-icon {
+      width: 92px;
+      height: 92px;
+      border-radius: 0;
+      object-fit: contain;
+      box-shadow: none;
+    }
+
+    .card-top h3 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+    }
+
+    .meta {
+      margin: 0;
+      font-size: 0.96rem;
+    }
+
+    .card-copy {
+      padding: 0 24px 18px;
+    }
+
+    .shot-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 0 24px 20px;
+    }
+
+    .shot-strip img {
+      width: 100%;
+      aspect-ratio: 9 / 19.5;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 18px;
+      border: 1px solid rgba(23, 43, 63, 0.08);
+      background: #dfe8f2;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 24px 24px;
+    }
+
+    .link-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #f5f8fb;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page-shell {
+        width: min(100% - 20px, 1180px);
+        padding-top: 18px;
+      }
+
+      .hero {
+        padding: 24px;
+      }
+
+      .card-top {
+        grid-template-columns: 72px minmax(0, 1fr);
+      }
+
+      .app-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+      }
+
+      .shot-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <img class="hero-brand" src="resources/studio-logo.png" alt="PrimeLab Studio logo">
+        <span class="eyebrow">Studio Portfolio</span>
+        <h1>Simple apps for calmer routines and more self-awareness.</h1>
+        <p>PrimeLab Studio creates iOS apps that feel focused, clear, and easy to come back to. Each product here has its own page with screenshots, support details, and the legal basics in one place.</p>
+        <div class="button-row">
+          <a class="button primary" href="#apps">Browse Apps</a>
+          <a class="button secondary" href="meditify-app/">Open MeditifyApp</a>
+        </div>
+      </div>
+      <aside class="studio-panel">
+        <h2>What we make</h2>
+        <ul>
+          <li>Inner Pulse helps people notice, log, and review their emotions.</li>
+          <li>MeditifyApp supports a steady meditation practice with timers and presets.</li>
+          <li>Each app includes direct links to support, privacy, and terms pages.</li>
+        </ul>
+      </aside>
+    </header>
 
-<header>
-  <img src="logo.png" alt="PrimeLab Studio Logo">
-  <h1>PrimeLab Studio</h1>
-  <p>We create innovative and user-friendly iOS applications that help people improve their daily life.</p>
-</header>
+    <main id="apps">
+      <h2 class="section-title">Our Apps</h2>
+      <section class="app-grid" aria-label="App directory">
+        <article class="app-card">
+          <div class="card-top">
+            <img class="app-icon" src="resources/inner-pulse-logo.png" alt="Inner Pulse app logo">
+            <div>
+              <h3>Inner Pulse</h3>
+              <p class="meta">Track feelings, review your history, and notice patterns more clearly.</p>
+            </div>
+          </div>
+          <div class="card-copy">
+            <p>Inner Pulse is built for regular emotional check-ins, with a simple flow for logging what you feel and seeing how your day shifts over time.</p>
+          </div>
+          <div class="shot-strip">
+            <img src="resources/inner-pulse-screenshots/1-en-today.png" alt="Inner Pulse today screen">
+            <img src="resources/inner-pulse-screenshots/2-en-new-emotion.png" alt="Inner Pulse emotion entry screen">
+            <img src="resources/inner-pulse-screenshots/3-en-history.png" alt="Inner Pulse history screen">
+          </div>
+          <div class="link-row">
+            <a class="link-chip" href="inner-pulse/">Open Site</a>
+            <a class="link-chip" href="inner-pulse/support.html">Support</a>
+            <a class="link-chip" href="inner-pulse/privacy.html">Privacy</a>
+            <a class="link-chip" href="inner-pulse/terms.html">Terms</a>
+          </div>
+        </article>
 
-<section>
-  <h2>Our Work</h2>
-  <p>One of our featured apps is <strong>Inner Pulse</strong> — a personal companion for tracking emotions and improving mental wellness.</p>
-  <a class="button" href="inner-pulse">Learn More About Inner Pulse</a>
-</section>
+        <article class="app-card">
+          <div class="card-top">
+            <img class="app-icon" src="resources/meditify-app-logo.png" alt="MeditifyApp app logo">
+            <div>
+              <h3>MeditifyApp</h3>
+              <p class="meta">A calm meditation app with timers, presets, and a clear session history.</p>
+            </div>
+          </div>
+          <div class="card-copy">
+            <p>MeditifyApp is designed for repeatable practice, so starting a session, saving a routine, and checking your progress all feel straightforward.</p>
+          </div>
+          <div class="shot-strip">
+            <img src="resources/meditify-app-screenshots/1-timer.png" alt="MeditifyApp timer screen">
+            <img src="resources/meditify-app-screenshots/3-presets-list.png" alt="MeditifyApp presets screen">
+            <img src="resources/meditify-app-screenshots/5-session-history.png" alt="MeditifyApp session history screen">
+          </div>
+          <div class="link-row">
+            <a class="link-chip" href="meditify-app/">Open Site</a>
+            <a class="link-chip" href="meditify-app/support.html">Support</a>
+            <a class="link-chip" href="meditify-app/privacy.html">Privacy</a>
+            <a class="link-chip" href="meditify-app/terms.html">Terms</a>
+          </div>
+        </article>
+      </section>
+    </main>
 
+    <footer>PrimeLab Studio app directory</footer>
+  </div>
 </body>
 </html>

@@ -1,127 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inner Pulse App</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inner Pulse App</title>
+  <meta name="description" content="Inner Pulse helps you notice emotions, log them simply, and understand patterns over time.">
+  <style>
+    :root {
+      --bg: #1b0224;
+      --bg-soft: #2a0738;
+      --surface: rgba(20, 11, 29, 0.78);
+      --surface-strong: rgba(32, 15, 45, 0.92);
+      --text: #f8f3ff;
+      --muted: rgba(240, 228, 255, 0.76);
+      --line: rgba(255, 255, 255, 0.08);
+      --accent: #b161ff;
+      --accent-strong: #7f3cff;
+      --accent-blue: #2d9cff;
+      --shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+    }
 
-        header {
-            text-align: center;
-            padding: 3em 1em 2em;
-            background: linear-gradient(135deg, #dbeafe, #f0f4f8);
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        header img {
-            height: 80px;
-            margin-bottom: 1em;
-            border-radius: 20px;
-        }
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(177, 97, 255, 0.2), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(45, 156, 255, 0.14), transparent 24%),
+        linear-gradient(180deg, #19011f 0%, var(--bg) 36%, var(--bg-soft) 100%);
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
+    a {
+      color: inherit;
+    }
 
-        section {
-            max-width: 800px;
-            margin: 2em auto;
-            padding: 0 1em;
-        }
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 68px;
+    }
 
-        h2 {
-            color: #0056d6;
-            margin-bottom: 0.5em;
-        }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding-bottom: 18px;
+    }
 
-        a.button {
-            display: inline-block;
-            padding: 0.75em 1.5em;
-            background: #0056d6;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
 
-        a.button:hover {
-            background: #0041a8;
-        }
+    .brand img {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      border-radius: 0;
+      box-shadow: none;
+      flex: 0 0 auto;
+    }
 
-        .footer-links {
-            text-align: center;
-            margin: 3em 0;
-            font-size: 0.9rem;
-        }
+    .brand strong,
+    .brand span {
+      display: block;
+    }
 
-        .footer-links a {
-            color: #0056d6;
-            text-decoration: none;
-            margin: 0 1em;
-        }
+    .brand span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line);
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      background: rgba(177, 97, 255, 0.18);
+      border-color: rgba(177, 97, 255, 0.26);
+    }
+
+    .hero,
+    .section-card,
+    .feature-card {
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.92fr);
+      gap: 24px;
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(177, 97, 255, 0.16);
+      color: #ddb9ff;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p,
+    .feature-card p,
+    .section-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent-blue) 100%);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(127, 60, 255, 0.28);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line);
+    }
+
+    .hero-panel {
+      padding: 22px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(177, 97, 255, 0.18), rgba(45, 156, 255, 0.12));
+      border: 1px solid rgba(177, 97, 255, 0.16);
+    }
+
+    .hero-panel h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .hero-panel ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .hero-panel li {
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .gallery {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding: 8px 6px 18px;
+      margin-top: 24px;
+      scroll-snap-type: x proximity;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(177, 97, 255, 0.55) rgba(255, 255, 255, 0.08);
+    }
+
+    .gallery::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .gallery::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+    }
+
+    .gallery::-webkit-scrollbar-thumb {
+      background: rgba(177, 97, 255, 0.55);
+      border-radius: 999px;
+    }
+
+    .shot-card {
+      margin: 0;
+      flex: 0 0 min(320px, 78vw);
+      scroll-snap-align: start;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
+    }
+
+    .shot-card img {
+      width: 100%;
+      aspect-ratio: 9 / 19.5;
+      object-fit: contain;
+      object-position: center top;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .shot-card p {
+      margin: 0;
+      padding: 14px 16px 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .feature-card {
+      padding: 22px;
+      border-radius: var(--radius-md);
+      background: var(--surface-strong);
+    }
+
+    .feature-card h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page-shell {
+        width: min(100% - 20px, 1180px);
+        padding-top: 18px;
+      }
+
+      .topbar,
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-    <header>
-        <img src="logo.png" alt="Inner Pulse Logo">
-        <h1>Inner Pulse</h1>
-        <p>Your personal companion for tracking emotions and self-awareness.</p>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="PrimeLab Studio home">
+        <img src="../resources/inner-pulse-logo.png" alt="Inner Pulse logo">
+        <span>
+          <strong>Inner Pulse</strong>
+          <span>A quieter way to check in with yourself</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="active" href="index.html">Home</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </header>
 
-    <section>
-        <h2>About the App</h2>
-        <p>Inner Pulse is designed to help you notice and understand your emotions. Track your mood daily, journal your
-            feelings, and discover patterns that help you improve mental wellness.</p>
-    </section>
+    <main>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Inner Pulse App</span>
+          <h1>Make space to notice what you feel, not just what you did.</h1>
+          <p>Inner Pulse helps you check in with yourself during the day, save those moments, and come back later to see how your emotional patterns shift over time.</p>
+          <div class="button-row">
+            <a class="button primary" href="support.html">Get Support</a>
+            <a class="button secondary" href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <h2>How it feels to use</h2>
+          <ul>
+            <li>Capture your current emotional state in a few taps.</li>
+            <li>See the balance of your day at a glance.</li>
+            <li>Look back and notice repeated themes over time.</li>
+          </ul>
+        </aside>
+      </section>
 
-    <section>
-        <h2>Features</h2>
-        <ul>
-            <li>Daily mood tracking</li>
-            <li>Journal your emotions</li>
-            <li>Analyze patterns over time</li>
-            <li>Visual stats and charts</li>
-        </ul>
-    </section>
+      <section class="gallery" aria-label="Inner Pulse screenshots">
+        <figure class="shot-card">
+          <img src="../resources/inner-pulse-screenshots/1-en-today.png" alt="Inner Pulse today screen">
+          <p>Check in with how the day feels right now and keep the entry flow quick.</p>
+        </figure>
+        <figure class="shot-card">
+          <img src="../resources/inner-pulse-screenshots/2-en-new-emotion.png" alt="Inner Pulse new emotion screen">
+          <p>Add a new emotion entry in the moment instead of trying to remember it later.</p>
+        </figure>
+        <figure class="shot-card">
+          <img src="../resources/inner-pulse-screenshots/3-en-history.png" alt="Inner Pulse history screen">
+          <p>Review patterns and see how your emotional balance shifts over time.</p>
+        </figure>
+        <figure class="shot-card">
+          <img src="../resources/inner-pulse-screenshots/4-en-notifications.png" alt="Inner Pulse notifications screen">
+          <p>Use reminders when you want a gentler nudge to check in during the day.</p>
+        </figure>
+        <figure class="shot-card">
+          <img src="../resources/inner-pulse-screenshots/5-en-settings.png" alt="Inner Pulse settings screen">
+          <p>Adjust the app to fit your routine without overcomplicating the experience.</p>
+        </figure>
+      </section>
 
-    <section>
-        <h2>Contact Support</h2>
-        <p>If you have questions or feedback, reach out via email:</p>
-        <span id="support-email"></span>
-    </section>
+      <section class="feature-grid" aria-label="Inner Pulse features">
+        <article class="feature-card">
+          <h2>Quick check-ins</h2>
+          <p>Log emotions in the moment so your day is reflected as it actually felt, not just how you remember it later.</p>
+        </article>
+        <article class="feature-card">
+          <h2>History that means something</h2>
+          <p>Review your entries over time and get a clearer sense of what has been present lately and what keeps repeating.</p>
+        </article>
+        <article class="feature-card">
+          <h2>Calm visual design</h2>
+          <p>The interface stays out of the way so the focus stays on reflection, not on learning a complicated system.</p>
+        </article>
+      </section>
+    </main>
 
-    <div class="footer-links">
+    <footer class="footer">
+      <span>Inner Pulse website</span>
+      <div class="footer-links">
+        <a href="../index.html">Studio</a>
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-    </div>
-
-    <script>
-        const encodedEmail = "aW5uZXJwdWxzZS5zdXBwb3J0QGljbG91ZC5jb20=";
-        const decodedEmail = atob(encodedEmail);
-        const emailEl = document.getElementById("support-email");
-        emailEl.innerHTML = `<a class="button" href="mailto:${decodedEmail}">${decodedEmail}</a>`;
-    </script>
-
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
+    </footer>
+  </div>
 </body>
-
 </html>
